@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "955293055255",
+    "project_id": "signin-app-7bef8",
+    "storage_bucket": "signin-app-7bef8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:955293055255:android:71de1fdf8fff1dfd085f52",
+        "android_client_info": {
+          "package_name": "com.jec.signin_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "955293055255-v2g19c6hinnons0nld7i195p448tsa8m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jec.signin_app",
+            "certificate_hash": "bd0722cfaf094ca84bdc3049132ded4f23bec676"
+          }
+        },
+        {
+          "client_id": "955293055255-kf3vjmn8iqen7cqptk41u0af3sq11cmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBA6AcuvJpnOPhlWCQ4p-XTZWcgFXSDImg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "955293055255-kf3vjmn8iqen7cqptk41u0af3sq11cmd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
