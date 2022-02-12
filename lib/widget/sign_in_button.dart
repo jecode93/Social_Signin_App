@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:signin_app/models/custom_button.dart';
+import 'package:signin_app/widget/custom_button.dart';
 
 class SignInButtons extends StatelessWidget {
   const SignInButtons({Key? key}) : super(key: key);
