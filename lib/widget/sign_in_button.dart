@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:signin_app/widget/custom_button.dart';
+
+import '../screens/registration.dart';
 
 class SignInButtons extends StatelessWidget {
   const SignInButtons({Key? key}) : super(key: key);
@@ -30,7 +33,14 @@ class SignInButtons extends StatelessWidget {
             imagePath: 'assets/images/mail.png',
             buttonColor: Colors.red,
             textColor: Colors.white,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => RegistrationForms(),
+                ),
+              );
+            },
           ),
           const Text(
             'Or',

@@ -14,7 +14,7 @@ class CustomButton extends StatelessWidget {
   final Color buttonColor;
   final String labelText;
   final String? imagePath;
-  final VoidCallback onPressed;
+  final onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class CustomButton extends StatelessWidget {
           style: ElevatedButton.styleFrom(
             primary: buttonColor,
           ),
-          onPressed: () {},
+          onPressed: onPressed,
           icon: Image.asset(imagePath!),
           label: Text(
             labelText,
