@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 // import 'package:signin_app/screens/home.dart';
-import 'screens/sign_in.dart';
+import 'screens/authentification_page.dart';
 
 void main() {
   runApp(const MyApp());

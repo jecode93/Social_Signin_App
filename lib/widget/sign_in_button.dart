@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:signin_app/widget/custom_button.dart';
 
-import '../screens/registration.dart';
+import '../screens/login_page.dart';
+import '../screens/sign_up_page.dart';
 
 class SignInButtons extends StatelessWidget {
   const SignInButtons({Key? key}) : super(key: key);
@@ -37,7 +38,7 @@ class SignInButtons extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => RegistrationForms(),
+                  builder: (context) => SignInForm(),
                 ),
               );
             },
