@@ -97,7 +97,7 @@ class _SignInFormState extends State<SignInForm> {
                               Text('Don\'t have an account?'),
                               TextButton(
                                 onPressed: () {
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => RegistrationForms(),

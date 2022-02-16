@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'login_page.dart';
+
 class RegistrationForms extends StatefulWidget {
   const RegistrationForms({Key? key}) : super(key: key);
 
@@ -20,6 +22,12 @@ class _RegistrationFormsState extends State<RegistrationForms> {
     final form = _formKey.currentState;
     if (form!.validate()) {
       form.save();
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Successfully sign up...')),
+      );
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => SignInForm()),
+      );
       return true;
     }
     return false;
