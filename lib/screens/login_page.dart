@@ -34,7 +34,17 @@ class _SignInFormState extends State<SignInForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Color.fromARGB(179, 255, 255, 255),
+      appBar: AppBar(
+        title: Text(
+          'Sign In',
+          style: GoogleFonts.roboto(
+            fontSize: 25.0,
+            fontWeight: FontWeight.w400,
+            color: Colors.white,
+          ),
+        ),
+      ),
       body: Center(
         child: Form(
           key: _formKey,
@@ -43,13 +53,6 @@ class _SignInFormState extends State<SignInForm> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Text(
-                    'Sign In Page',
-                    style: GoogleFonts.roboto(
-                      fontSize: 25.0,
-                      fontWeight: FontWeight.w400,
-                    ),
-                  ),
                   SizedBox(
                     height: 20.0,
                   ),

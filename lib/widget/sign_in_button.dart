@@ -35,7 +35,7 @@ class SignInButtons extends StatelessWidget {
             buttonColor: Colors.red,
             textColor: Colors.white,
             onPressed: () {
-              Navigator.pushReplacement(
+              Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => SignInForm(),
