@@ -4,7 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'sign_up_page.dart';
 
 class SignInForm extends StatefulWidget {
-  const SignInForm({Key? key}) : super(key: key);
+  const SignInForm({
+    Key? key,
+    required this.email,
+    required this.password,
+  }) : super(key: key);
+
+  final String email;
+  final String password;
 
   @override
   _SignInFormState createState() => _SignInFormState();
@@ -100,7 +107,10 @@ class _SignInFormState extends State<SignInForm> {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => RegistrationForms(),
+                                      builder: (context) => RegistrationForms(
+                                        email: widget.email,
+                                        password: widget.password,
+                                      ),
                                     ),
                                   );
                                 },

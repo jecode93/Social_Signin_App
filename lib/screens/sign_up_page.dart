@@ -4,7 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'login_page.dart';
 
 class RegistrationForms extends StatefulWidget {
-  const RegistrationForms({Key? key}) : super(key: key);
+  const RegistrationForms({
+    Key? key,
+    required this.email,
+    required this.password,
+  }) : super(key: key);
+
+  final String email;
+  final String password;
 
   @override
   _RegistrationFormsState createState() => _RegistrationFormsState();
@@ -26,7 +33,12 @@ class _RegistrationFormsState extends State<RegistrationForms> {
         const SnackBar(content: Text('Successfully sign up...')),
       );
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => SignInForm()),
+        MaterialPageRoute(
+          builder: (context) => SignInForm(
+            email: widget.email,
+            password: widget.password,
+          ),
+        ),
       );
       return true;
     }

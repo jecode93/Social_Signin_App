@@ -4,7 +4,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'sign_in_button.dart';
 
 class Body extends StatelessWidget {
-  const Body({Key? key}) : super(key: key);
+  const Body({
+    Key? key,
+    this.email,
+    this.password,
+  }) : super(key: key);
+
+  final String? email;
+  final String? password;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +27,10 @@ class Body extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          SignInButtons(),
+          SignInButtons(
+            email: '',
+            password: '',
+          ),
         ],
       ),
     );

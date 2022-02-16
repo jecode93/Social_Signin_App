@@ -6,7 +6,14 @@ import '../screens/login_page.dart';
 import '../screens/sign_up_page.dart';
 
 class SignInButtons extends StatelessWidget {
-  const SignInButtons({Key? key}) : super(key: key);
+  const SignInButtons({
+    Key? key,
+    required this.email,
+    required this.password,
+  }) : super(key: key);
+
+  final String email;
+  final String password;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +45,10 @@ class SignInButtons extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SignInForm(),
+                  builder: (context) => SignInForm(
+                    email: email,
+                    password: password,
+                  ),
                 ),
               );
             },

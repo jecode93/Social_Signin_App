@@ -3,7 +3,9 @@ import 'package:signin_app/widget/body.dart';
 
 class SignInPage extends StatelessWidget {
   // ignore: use_key_in_widget_constructors
-  const SignInPage(this.title);
+  const SignInPage(
+    this.title,
+  );
   final String title;
 
   @override
@@ -12,7 +14,7 @@ class SignInPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
       ),
-      body: const Body(),
+      body: Body(),
     );
   }
 }
