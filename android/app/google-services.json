@@ -37,6 +37,13 @@
             {
               "client_id": "955293055255-kf3vjmn8iqen7cqptk41u0af3sq11cmd.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "955293055255-aouni2ekqkaos838jv0muo0hp1173ogb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.jec.signinApp"
+              }
             }
           ]
         }

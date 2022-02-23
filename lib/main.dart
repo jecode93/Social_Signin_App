@@ -1,9 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-// import 'package:signin_app/screens/home.dart';
-import 'screens/authentification_page.dart';
+import 'firebase_options.dart';
+import 'screens/home.dart';
+import 'widget/body.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,7 +23,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: SignInPage('Sign In'),
+      home: StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (BuildContext context, AsyncSnapshot<dynamic> userSnapshot) {
+          if (userSnapshot.hasData) {
+            return Home();
+          }
+          return Body();
+        },
+      ),
       debugShowCheckedModeBanner: false,
     );
   }

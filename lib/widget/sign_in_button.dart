@@ -1,22 +1,73 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:flutter/services.dart';
 import 'package:signin_app/widget/custom_button.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../screens/auth_form.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-import '../screens/login_page.dart';
-import '../screens/sign_up_page.dart';
-
-class SignInButtons extends StatelessWidget {
+class SignInButtons extends StatefulWidget {
   const SignInButtons({
     Key? key,
-    required this.email,
-    required this.password,
   }) : super(key: key);
 
-  final String email;
-  final String password;
+  @override
+  State<SignInButtons> createState() => _SignInButtonsState();
+}
 
+class _SignInButtonsState extends State<SignInButtons> {
   @override
   Widget build(BuildContext context) {
+    final _auth = FirebaseAuth.instance;
+
+    var _isLoading = false;
+    void _submitAuthForm(
+      String email,
+      String username,
+      String password,
+      bool isLogin,
+    ) async {
+      UserCredential authResult;
+      try {
+        setState(() {
+          _isLoading = true;
+        });
+        if (isLogin) {
+          authResult = await _auth.signInWithEmailAndPassword(
+              email: email, password: password);
+        } else {
+          authResult = await _auth.createUserWithEmailAndPassword(
+              email: email, password: password);
+          await FirebaseFirestore.instance
+              .collection('users')
+              .doc(authResult.user!.uid)
+              .set({
+            'username': username,
+            'email': email,
+          });
+        }
+      } on PlatformException catch (e) {
+        var message = 'An error occured, please check your credential';
+        if (e.message != null) {
+          message = e.message!;
+        }
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            backgroundColor: Theme.of(context).errorColor,
+            content: Text(message),
+          ),
+        );
+        setState(() {
+          _isLoading = false;
+        });
+      } catch (e) {
+        print(e);
+
+        setState(() {
+          _isLoading = false;
+        });
+      }
+    }
+
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: Column(
@@ -45,9 +96,9 @@ class SignInButtons extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SignInForm(
-                    email: email,
-                    password: password,
+                  builder: (context) => AuthForm(
+                    _submitAuthForm,
+                    _isLoading,
                   ),
                 ),
               );
